@@ -7,12 +7,12 @@ students = [
     {"name": "Elon", "surname": "Musk", "grades": None}
 ]
 
-def find_best_student(*, persons: list[dict]) -> list[dict]:
+def find_best_student(*, persons: list[dict]) -> list[dict]: #creating function
     best_student = []
     best_grade = 0
     for student in persons:
         grade = student["grades"]
-        if grade is None:
+        if grade is None: # None value
             average_grade = 0
         else:
             average_grade = sum(grade) / len(grade)
@@ -23,4 +23,4 @@ def find_best_student(*, persons: list[dict]) -> list[dict]:
                 best_student.append(student)
     return best_grade, best_student
 
-print(find_best_student(persons=students))
+print(find_best_student(persons=students)) 
