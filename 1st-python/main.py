@@ -1,0 +1,26 @@
+students = [
+    {"name": "John", "surname": "Doe", "grades": [5, 5, 4, 4]},
+    {"name": "Jane", "surname": "Doe", "grades": [4, 3, 4, 3, 5]},
+    {"name": "Bill", "surname": "Gates", "grades": [5, 5, 5, 3]},
+    {"name": "Steve", "surname": "Jobs", "grades": [3, 5, 4, 3, 3, 5]},
+    {"name": "Guido", "surname": "Van Rossum", "grades": [5, 3, 5, 4, 5, 5, 3, 5]},
+    {"name": "Elon", "surname": "Musk", "grades": None}
+]
+
+def find_best_student(*, persons: list[dict]) -> list[dict]:
+    best_student = []
+    best_grade = 0
+    for student in persons:
+        grade = student["grades"]
+        if grade is None:
+            average_grade = 0
+        else:
+            average_grade = sum(grade) / len(grade)
+            if average_grade > best_grade:
+                best_grade = average_grade
+                best_student = [student]
+            elif average_grade == best_grade:
+                best_student.append(student)
+    return best_grade, best_student
+
+print(find_best_student(persons=students))
