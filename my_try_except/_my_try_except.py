@@ -22,5 +22,5 @@ try:
             good_value[time.ctime()] = bitcoin_price
     print("======", f"Amount in collection is {len(good_value)}", good_value, sep="\n")
 
-except requests.exceptions.ConnectionError as error: # if there no internet or signal lost
-    print(f"The problem with {error}")
+except (requests.exceptions.ConnectionError, ValueError) as error: # if there no internet or signal lost
+    print(f"The problem with '{error}'")
